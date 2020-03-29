@@ -4,7 +4,7 @@ public class Action {
 
 	private final int column;
 	
-	public Action(int column, Player player) {
+	public Action(int column) {
 		this.column = column;
 	}
 

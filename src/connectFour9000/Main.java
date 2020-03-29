@@ -1,12 +1,43 @@
 package connectFour9000;
 
+import java.util.List;
+import java.util.Random;
+
 public class Main {
 
-	
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		Random rand = new Random();
+		Position position = new Position(Player.PLAYER_BLUE);
+		
+		
+		
+		while(!position.gameOver()) {
+			
+			
+			List<Action> actions = position.getListOfPossibleActions();
+			
+			
 
+			// Obtain a number between [0 - 49].
+			int n = rand.nextInt(actions.size());
+			
+			
+			try {
+				position = position.getChildPositionOnAction(actions.get(n));
+			} catch (InvalidActionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			position.printPosition();
+			
+		}
+		
+		position.printPosition();
+		
+		
+		
 	}
 
 }
