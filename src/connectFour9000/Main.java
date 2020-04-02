@@ -17,9 +17,6 @@ public class Main {
 			
 			List<Action> actions = position.getListOfPossibleActions();
 			
-			
-
-			// Obtain a number between [0 - 49].
 			int n = rand.nextInt(actions.size());
 			
 			
@@ -33,11 +30,6 @@ public class Main {
 			position.printPosition();
 			
 		}
-		
-		position.printPosition();
-		
-		
-		
 	}
 
 }
