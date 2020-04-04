@@ -3,6 +3,13 @@ package connectFour9000;
 import evaluation.Evaluation;
 
 public class MinMax {
+	
+	//own MIN_VALUE because Float.MIN_VALUE causes problems with comparing
+	public static float MIN_VALUE = -99999;
+	
+	public static float MAX_VALUE = 99999;
+	
+	
 
 	public static float alphaBeta(Position position, int depth, float alpha, float beta, 
 			boolean maximizingPlayer, Player maxPlayer, Player minPlayer) {
@@ -12,13 +19,16 @@ public class MinMax {
 		}
 		
 		if(maximizingPlayer) {
-			float maxEval = Float.MIN_VALUE;
+			float maxEval = MIN_VALUE;
 			
 			//iterate over the children of current position
 			for( Position child : position) {
 				float eval = alphaBeta(child, depth -1, alpha,beta, false, minPlayer, maxPlayer);
+				
 				maxEval = Float.max(maxEval,eval);
 				alpha = Float.max(alpha, eval);
+				
+				
 				if(beta <= alpha) {
 					break;
 				}
@@ -27,7 +37,7 @@ public class MinMax {
 			return maxEval;
 	
 		}else {
-			float minEval = Float.MAX_VALUE;
+			float minEval = MAX_VALUE;
 			
 			//iterate over the children of current position
 			for( Position child : position) {
@@ -42,7 +52,7 @@ public class MinMax {
 			return minEval;			
 		}
 	}	
-	
+
 }
 
 

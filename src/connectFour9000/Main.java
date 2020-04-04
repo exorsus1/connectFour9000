@@ -22,12 +22,12 @@ public class Main {
 			if(position.getPlayer() ==  Player.PLAYER_BLUE) {
 				
 				float value=0;
-				float resultValue = Float.MIN_VALUE;
+				float resultValue = MinMax.MIN_VALUE;
 				
 				
 				for(Action action : actions) {
 					
-					value = MinMax.alphaBeta( position, 5,  Float.MIN_VALUE, Float.MAX_VALUE, 
+					value = MinMax.alphaBeta( position, 5,  MinMax.MIN_VALUE, MinMax.MAX_VALUE, 
 							true, Player.PLAYER_BLUE, Player.PLAYER_RED);
 					
 					
@@ -39,7 +39,7 @@ public class Main {
 					
 				}
 				
-
+				System.out.println("Evaluation: " + resultValue);
 				
 			}else {
 				result = actions.get(rand.nextInt(actions.size()));
