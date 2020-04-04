@@ -8,10 +8,10 @@ public class Position implements Iterable<Position>{
 
 	public static final int NUMBER_OF_MOVES = 42;
 	
-	private final int horizontal = 6;
-	private final int vertical = 7;
+	public final static int horizontal = 6;
+	public final static int vertical = 7;
 	
-	private int[][] board = new int[horizontal][vertical];
+	public int[][] board = new int[horizontal][vertical];
 	
 	private int moveCounter;
 	
@@ -81,6 +81,11 @@ public class Position implements Iterable<Position>{
 			gameOver = false;
 		}
 	}
+	
+	public Player getPlayer() {
+		return player;
+	}
+	
 	
 	
 	public void printPosition() {
